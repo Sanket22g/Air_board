@@ -1,0 +1,68 @@
+Prerequisites
+Install Required Libraries
+Make sure the following libraries are installed:
+
+OpenCV
+NumPy
+Mediapipe
+Install them using the following commands in your terminal or VS Code terminal:
+
+bash
+Copy code
+ pip install opencv-python mediapipe numpy
+Set Up Your Environment
+
+Use a Python IDE like VS Code, PyCharm, or simply run the script from the terminal.
+Ensure your webcam is connected and functioning properly.
+Steps to Run the Code
+Save the Script
+
+Copy the code into a Python file, for example: air_drawing.py.
+Run the Script
+
+Open a terminal and navigate to the folder where air_drawing.py is saved.
+Run the script using:
+bash
+Copy code
+python air_drawing.py
+Using the Application
+
+Once the script starts, the webcam feed will open in a window titled "Air Drawing".
+Follow the gestures below to use it:
+How to Use the Features
+1. Drawing with Your Finger
+Use your index finger to draw on the screen.
+Move the index finger around the screen to create lines.
+2. Erasing with an Open Palm
+To erase part of the canvas, show your open palm in front of the camera.
+The script will detect the open palm and erase a circular area wherever you move it.
+You can adjust the erase radius in the code (erase_radius = 50) to increase or decrease the size of the eraser.
+3. Clearing the Entire Canvas
+Raise your hand above 30% of the screen height to clear the entire canvas.
+4. Quit the Application
+Press the q key on your keyboard to quit the program.
+Gesture Summary
+Gesture	Action
+Index Finger	Draw on the screen
+Open Palm	Erase parts of the canvas
+Hand Above Screen (30%)	Clear the entire canvas
+Press 'q'	Quit the program
+Customization Options
+Change Drawing Color or Thickness
+
+To modify the drawing color or line thickness, adjust these lines in the code:
+python
+Copy code
+cv2.line(canvas, prev_finger_tip, (x, y), (255, 0, 0), 5)  # Blue line
+Change Eraser Radius
+
+Modify the erase_radius value to make the eraser bigger or smaller:
+python
+Copy code
+erase_radius = 50
+Adjust Detection Thresholds
+
+Change the minimum detection confidence for hand landmarks:
+python
+Copy code
+hands = mp_hands.Hands(static_image_mode=False, max_num_hands=2, min_detection_confidence=0.7)
